@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güvenli Sohbet Uygulaması</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Giriş Ekranı -->
+    <div id="loginScreen" class="screen">
+        <div class="form-container">
+            <h2>Giriş Yap</h2>
+            <input type="text" id="loginUsername" placeholder="Kullanıcı Adı">
+            <input type="email" id="loginEmail" placeholder="E-posta">
+            <button onclick="loginUser()">Giriş Yap</button>
+            <p class="form-link">Hesabınız yok mu? <a href="#" onclick="showRegisterScreen()">Kayıt Olun</a></p>
+        </div>
+    </div>
+
+    <!-- Kayıt Ekranı -->
+    <div id="registerScreen" class="screen hidden">
+        <div class="form-container">
+            <h2>Kullanıcı Kaydı</h2>
+            <input type="text" id="username" placeholder="Kullanıcı Adı">
+            <input type="email" id="email" placeholder="E-posta">
+            <button onclick="registerUser()">Kayıt Ol</button>
+            <p class="form-link">Zaten hesabınız var mı? <a href="#" onclick="showLoginScreen()">Giriş Yapın</a></p>
+        </div>
+    </div>
+
+    <!-- Kullanıcı Seçim Ekranı -->
+    <div id="userSelectScreen" class="screen hidden">
+        <div class="form-container">
+            <h2>Sohbet Edilecek Kullanıcı</h2>
+            <select id="userList">
+                <option value="">Kullanıcı Seçin</option>
+            </select>
+            <button onclick="startChat()">Sohbete Başla</button>
+        </div>
+    </div>
+
+    <!-- Sohbet Ekranı -->
+    <div id="chatScreen" class="screen hidden">
+        <div class="chat-container">
+            <div class="chat-header">
+                <button onclick="backToUserSelect()" class="back-button">Geri</button>
+                <h2>Sohbet - <span id="chatWith"></span></h2>
+                <div class="encryption-badge" title="Uçtan uca şifrelenmiş">🔒</div>
+            </div>
+            <div class="chat-messages" id="messageArea"></div>
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="Mesajınızı yazın...">
+                <button onclick="sendMessage()">Gönder</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
